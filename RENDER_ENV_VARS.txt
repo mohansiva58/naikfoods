@@ -1,0 +1,35 @@
+# Copy these environment variables to Render Dashboard
+# Environment > Environment Variables > Add Environment Variable
+
+# Database
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/shewear?retryWrites=true&w=majority
+REDIS_URL=redis://default:password@redis-host:6379
+
+# Server
+NODE_ENV=production
+PORT=10000
+
+# JWT Secret (generate a random string)
+JWT_SECRET=your_super_secret_jwt_key_here_change_this
+
+# Firebase Admin SDK (paste the entire JSON as one line)
+FIREBASE_ADMIN_SDK={"type":"service_account","project_id":"your-project","private_key_id":"...","private_key":"...","client_email":"...","client_id":"...","auth_uri":"...","token_uri":"...","auth_provider_x509_cert_url":"...","client_x509_cert_url":"..."}
+
+# Razorpay
+RAZORPAY_KEY_ID=rzp_test_xxxxxxxxxxxxx
+RAZORPAY_KEY_SECRET=your_razorpay_secret_key
+
+# Cloudinary
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+
+# Email (Gmail)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your_gmail_app_password
+
+# Frontend URL (add after deploying frontend)
+FRONTEND_URL=https://your-frontend.vercel.app
+CORS_ORIGIN=https://your-frontend.vercel.app

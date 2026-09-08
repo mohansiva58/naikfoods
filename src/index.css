@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Aham-style   Boutique — White + Gold + Black */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    /* Gold accent */
+    --primary: 38 52% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light warm gray */
+    --secondary: 40 20% 96%;
+    --secondary-foreground: 0 0% 8%;
+
+    /* Muted neutrals */
+    --muted: 40 10% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 38 52% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 38 52% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --blush: 40 20% 95%;
+    --blush-light: 40 20% 97%;
+    --blush-dark: 0 0% 30%;
+    --gold: 38 52% 55%;
+    --gold-light: 40 30% 92%;
+    --charcoal: 0 0% 6%;
+    --cream: 40 30% 97%;
+
+    /* Gradients */
+    --gradient-blush: linear-gradient(135deg, hsl(40 20% 97%) 0%, hsl(40 20% 95%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(38 52% 45%) 0%, hsl(38 52% 55%) 100%);
+    --gradient-elegant: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 20% 97%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 8px 30px -8px rgba(0, 0, 0, 0.08);
+    --shadow-float: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+    --shadow-glow: 0 0 30px rgba(197, 160, 89, 0.25);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 38 52% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 20% 95%;
+    --sidebar-accent-foreground: 0 0% 8%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 38 52% 55%;
+  }
+
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 38 52% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 38 52% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 38 52% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+
+  /* Elegant Button Styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-3 rounded-none font-medium transition-all duration-300 ease-out hover:shadow-[var(--shadow-glow)] hover:brightness-110 active:scale-95 uppercase tracking-wider text-sm;
+  }
+
+  .btn-outline {
+    @apply border-2 border-foreground text-foreground bg-transparent px-8 py-3 rounded-none font-medium transition-all duration-300 ease-out hover:bg-foreground hover:text-background uppercase tracking-wider text-sm;
+  }
+
+  .btn-gold {
+    @apply px-8 py-3 rounded-none font-medium text-white transition-all duration-300 ease-out hover:brightness-110 active:scale-95 uppercase tracking-wider text-sm;
+    background: var(--gradient-gold);
+  }
+
+  /* Card Styles */
+  .card-elegant {
+    @apply bg-card overflow-hidden transition-all duration-500 ease-out;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-elegant:hover {
+    box-shadow: var(--shadow-float);
+    transform: translateY(-4px);
+  }
+
+  .card-product {
+    @apply bg-card overflow-hidden cursor-pointer transition-all duration-400 ease-out;
+    box-shadow: none;
+  }
+
+  .card-product:hover {
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+  }
+
+  /* Section Backgrounds */
+  .bg-elegant {
+    background: var(--gradient-elegant);
+  }
+
+  .bg-blush-light {
+    @apply bg-secondary;
+  }
+
+  /* Text Styles */
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animation Classes */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-float);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Image hover zoom */
+  .img-zoom {
+    @apply overflow-hidden;
+  }
+
+  .img-zoom img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .img-zoom:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Underline animation for links */
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute w-full h-0.5 bottom-0 left-0 origin-bottom-right transition-transform duration-300 ease-out scale-x-0;
+    background: hsl(var(--primary));
+  }
+
+  .link-underline:hover::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+
+  /* Badge Styles */
+  .badge-ruby {
+    @apply inline-block px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-primary text-primary-foreground shadow-sm;
+  }
+
+  .badge-rose {
+    @apply inline-block px-3 py-1 text-[10px] font-bold tracking-widest uppercase bg-secondary text-secondary-foreground shadow-sm;
+  }
+
+  .badge-outline {
+    @apply inline-block px-3 py-1 text-[10px] font-bold tracking-widest uppercase border border-primary text-primary;
+  }
+
+  /* Clean UI Tokens */
+  .pill-badge {
+    @apply px-3 py-1 text-[11px] font-bold tracking-wide shadow-sm flex items-center justify-center;
+  }
+
+  .clean-card {
+    @apply bg-white border border-border/40 p-0 transition-all duration-300;
+  }
+
+  .clean-card:hover {
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
+  }
+}
+
+@layer utilities {
+
+  /* Stagger animations */
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+
+  .stagger-3 {
+    animation-delay: 0.3s;
+  }
+
+  .stagger-4 {
+    animation-delay: 0.4s;
+  }
+
+  .stagger-5 {
+    animation-delay: 0.5s;
+  }
+
+  .stagger-6 {
+    animation-delay: 0.6s;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseSoft {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}

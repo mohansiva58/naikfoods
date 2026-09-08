@@ -1,0 +1,23 @@
+# Naikfoods  
+
+Naikfoods   is a  's boutique fashion website at https:// Naikfoods.in.
+
+## Important URLs
+
+- Home: https:// Naikfoods.in/
+- Shop: https:// Naikfoods.in/shop
+- New arrivals: https:// Naikfoods.in/shop?filter=new
+- Bestsellers: https:// Naikfoods.in/shop?filter=bestseller
+- About: https:// Naikfoods.in/about
+- Contact: https:// Naikfoods.in/contact
+
+## Business Summary
+
+Naikfoods   offers    's ethnic wear and boutique fashion, including frocks, A-line dresses, 2-piece sets, 3-piece sets, anarkalis,   collections, and lehenga sets.
+
+## Contact
+
+Email: naikfoods001@gmail.com
+Location: T.C. 22/2463-1, Ameenpur, Miyapur, Seva Mitra Mandal Chowk
+Near Fadgate Police Chowki
+Shukrawar Peth, Pune 411002
