@@ -32,6 +32,7 @@ import userRoutes from './routes/users';
 import adminRoutes from './routes/admin';
 import salesRoutes from './routes/sales';
 import couponRoutes from './routes/coupons';
+import instagramRoutes from './routes/instagram';
 
 // Import middleware
 import { errorHandler, notFoundHandler } from './middleware/errorHandler';
@@ -156,6 +157,7 @@ function createApp(): Application {
     app.use('/api/users', userRoutes);
     app.use('/api/admin', adminRoutes);
     app.use('/api/sales', salesRoutes);
+    app.use('/api/instagram', instagramRoutes);
 
     // Limiters
     app.use('/api/payment', paymentLimiter);
