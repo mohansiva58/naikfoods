@@ -190,7 +190,7 @@ async function startWorker() {
     const app = createApp();
 
     try {
-        console.log(`🚀 Starting Leena Backend Server (PID: ${process.pid})...\n`);
+        console.log(`🚀 Starting naikfood Backend Server (PID: ${process.pid})...\n`);
 
         // Connect to MongoDB (required — server can't work without DB)
         await connectDatabase();

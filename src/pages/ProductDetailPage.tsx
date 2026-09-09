@@ -462,8 +462,12 @@ export default function ProductDetailPage() {
 
   // Available stock per size: Total - Reserved
    const getAvailableStock = (size: string) => {
-     const total = sizeAvailability[size] || 0;
-     const reserved = sizeReserved[size] || 0;
+     if (Object.keys(sizeAvailability).length === 0) {
+       return Math.max(0, Number(product.stock || 0));
+     }
+
+     const total = Number(sizeAvailability[size] || 0);
+     const reserved = Number(sizeReserved[size] || 0);
      return Math.max(0, total - reserved);
    };
 

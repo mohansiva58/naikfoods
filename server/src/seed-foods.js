@@ -15,6 +15,8 @@ const productSchema = new mongoose.Schema(
         images: { type: [String], default: [] },
         category: { type: String, required: true, index: true },
         sizes: { type: [String], required: true },
+        sizeCounts: { type: Map, of: Number, default: {} },
+        sizeReservedCounts: { type: Map, of: Number, default: {} },
         description: { type: String, required: true },
         rating: { type: Number, default: 0, min: 0, max: 5 },
         reviews: { type: Number, default: 0, min: 0 },
@@ -93,6 +95,43 @@ const imageUrls = [
     'https://images.unsplash.com/photo-1589135233689-3a3c8c7f6aa5?auto=format&fit=crop&w=900&q=85',
     'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85',
     'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1556911220-e15b29be8f8d?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=900&q=85',
+    'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1556911220-e15b29be8f8d?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=85&ixid=2',
+    'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=900&q=85&ixid=2',
 ];
 
 const categoryDefinitions = [
@@ -167,6 +206,10 @@ const products = categoryDefinitions.flatMap((category, categoryIndex) => catego
     const originalPrice = price + 30 + (productIndex % 3) * 20;
     const image = imageUrls[(categoryIndex * 5 + productIndex) % imageUrls.length];
     const productId = `NF-${categoryIndex + 1}${productIndex + 1}-${name.toUpperCase().replace(/[^A-Z0-9]+/g, '-')}`;
+    const sizeCounts = Object.fromEntries(category.pack.map((packSize, packIndex) => [
+        packSize,
+        Math.floor((24 + categoryIndex * 8 + productIndex * 5) / category.pack.length) + (packIndex === 0 ? 1 : 0),
+    ]));
     return {
         productId,
         slug: `${name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}-${categoryIndex + 1}-${productIndex + 1}`,
@@ -177,6 +220,8 @@ const products = categoryDefinitions.flatMap((category, categoryIndex) => catego
         image,
         images: [image, imageUrls[(categoryIndex + productIndex + 1) % imageUrls.length]],
         sizes: category.pack,
+        sizeCounts,
+        sizeReservedCounts: Object.fromEntries(category.pack.map((packSize) => [packSize, 0])),
         packQuantity: category.pack[0],
         description: category.descriptions[productIndex],
         ingredients: category.ingredients,
@@ -217,8 +262,12 @@ async function seed() {
     if (!mongoUri) throw new Error('MONGODB_URI is not defined in server/.env');
 
     await mongoose.connect(mongoUri);
-    await Promise.all(products.map((product) => Product.updateOne({ productId: product.productId }, { $set: product }, { upsert: true, runValidators: true })));
-    await Promise.all(sales.map(({ index, ...sale }) => Sale.updateOne({ saleId: sale.saleId }, { $set: sale }, { upsert: true, runValidators: true })));
+    await Promise.all([
+        Product.deleteMany({}),
+        Sale.deleteMany({}),
+    ]);
+    await Product.insertMany(products, { ordered: true });
+    await Sale.insertMany(sales.map(({ index, ...sale }) => sale), { ordered: true });
     await SaleMode.updateOne(
         { saleName: 'Naik Foods Festive Savings' },
         { $set: { saleName: 'Naik Foods Festive Savings', isActive: true, description: 'Save 15% on regional favourites, packed fresh from our kitchen.', startDate: new Date(), endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) } },
