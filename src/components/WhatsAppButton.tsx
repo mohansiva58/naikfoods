@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 export function WhatsAppButton() {
   const location = useLocation();
   const phoneNumber = '+919730046247';
-  const message = 'Hi! I\'m interested in your ethnic wear collection.';
+  const message = 'Hi! I\'m interested in your products.';
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   if (location.pathname === '/developedby-sybarites') {

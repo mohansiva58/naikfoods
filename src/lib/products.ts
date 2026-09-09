@@ -183,4 +183,4 @@ export const priceRanges = [
   { label: 'Above ₹10,000', min: 10000, max: Infinity },
 ];
 
-export const sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', '5XL', '6XL', 'Free Size'];
+export const sizes = ['100g', '150g', '200g', '250g', '300g', '400g', '500g', '750ml', '800g', '1kg'];

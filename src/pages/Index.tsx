@@ -5,6 +5,7 @@ import { HeroSection } from '@/components/HeroSection';
 import { SalesSection } from '@/components/SalesSection';
 import { ProductSection } from '@/components/ProductSection';
 import { CategorySection } from '@/components/CategorySection';
+import { InstagramFeed } from '@/components/InstagramFeed';
 import { Footer } from '@/components/Footer';
 import { Marquee } from '@/components/Marquee';
 import { AuthModal } from '@/components/AuthModal';
@@ -72,6 +73,7 @@ const Index = () => {
         {/* <ProductSection title="  Collection" subtitle="Handcrafted Luxury" featured={true} /> */}
         <ProductSection title="New Arrivals" subtitle="Latest Trends" filter="new" />
         <ProductSection title="On Sale" subtitle="Most Loved Pieces" filter="bestseller" />
+        <InstagramFeed />
 
       </main>
       <Footer />

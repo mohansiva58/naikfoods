@@ -10,7 +10,7 @@
         "start": "node dist/server.js",
         "clean": "rimraf dist",
         "seed": "node src/seed.js",
-        "seed:sample": "node src/seed-sample-data.js"
+        "seed:sample": "node src/seed-foods.js"
     },
     "dependencies": {
         "cloudinary": "^1.41.1",

@@ -1011,12 +1011,12 @@ export default function ProductDetailPage() {
                 </p>
               </div>
 
-              {/* SIZE */}
+              {/* PACK QUANTITY */}
 
               <div>
                 <div className="mb-3 flex items-center justify-between">
                   <h3 className="font-semibold">
-                    Select Quantity
+                    Pack Quantity
                   </h3>
 
                   {/* <button

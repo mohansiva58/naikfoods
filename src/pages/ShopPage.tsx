@@ -319,9 +319,9 @@ export default function ShopPage() {
                   </div>
                 </div>
 
-                {/* Size */}
+                {/* Pack quantity */}
                 <div>
-                  <h3 className="font-serif text-xl font-semibold mb-6 pb-2 border-b border-border/50">Select Quantity</h3>
+                  <h3 className="font-serif text-xl font-semibold mb-6 pb-2 border-b border-border/50">Pack Quantity</h3>
                   <div className="flex flex-wrap gap-2">
                     {sizes.map((size) => (
                       <button
@@ -399,9 +399,9 @@ export default function ShopPage() {
                       </div>
                     </div>
 
-                    {/* Size */}
+                    {/* Pack quantity */}
                     <div className="mb-10">
-                      <h3 className="font-serif text-lg font-semibold mb-4">Size</h3>
+                      <h3 className="font-serif text-lg font-semibold mb-4">Pack Quantity</h3>
                       <div className="flex flex-wrap gap-2">
                         {sizes.map((size) => (
                           <button

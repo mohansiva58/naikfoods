@@ -133,7 +133,7 @@ Shukrawar Peth, Pune 411002
                             {/* <Link to="/privacy-policy" className="hover:text-[#02013f] transition-colors">Privacy Policy</Link> */}
                             {/* <Link to="/terms-and-conditions" className="hover:text-[#02013f] transition-colors">Terms & Conditions</Link> */}
                             {/* <Link to="/refund-return-policy" className="hover:text-[#02013f] transition-colors">Refund Policy</Link> */}
-                            <Link to="/developedby-sybarites" className="font-semibold text-[#02013f] transition-colors hover:text-[#000b5f]">Developed by Sybarites</Link>
+                            {/* <Link to="/developedby-sybarites" className="font-semibold text-[#02013f] transition-colors hover:text-[#000b5f]">Developed by Sybarites</Link> */}
                         </div>
                     </div>
                 </div>
